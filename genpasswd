@@ -1,0 +1,38 @@
+#!/bin/bash
+
+#
+# Author Matthew Courts
+#
+# description:
+# program is based off the tr command piped through /dev/random seed to generate a password
+# made of letters and numbers.  built to help learn the parameter capabilities of bash
+# Current code does not release final parameter.
+
+generate () {
+                tr -dc A-Za-z0-9 < /dev/urandom | head -c ${1:-16} | xargs
+}
+
+genloop () {
+        shift
+        i=$1
+        shift
+        while [ $i -gt 0 ]
+        do
+                generate $1
+                i=$(($i - 1))
+        done
+}
+
+print_help () {
+        echo "Please use -c to supply the number of generations you want"
+        echo "then the number of characters"
+        echo "Example: "
+        echo "genpasswd -c 5 16"
+        echo "prints 5 different 16 character passwords"
+}
+
+case $1 in
+        c | -c) genloop $@;;
+        help | h | -h) print_help;;
+        *)generate $1;;
+esac

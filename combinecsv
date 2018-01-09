@@ -1,0 +1,30 @@
+# Author: Matthew Courts
+# Purpose: Take a directory of csv files with headers and combine them into one.
+
+workdir="$(pwd)";
+outputdir="$workdir/finalcsv";
+outputfile="$outputdir/final.csv";
+
+###set up
+#create work dir if need be
+if [ ! -d "$outputdir" ]; then
+  mkdir "$outputdir";
+fi
+
+#create output file if need be
+if [ ! -f "$outputfile" ]; then
+  touch "$outputfile";
+fi
+
+#begin filling outputfile, will overwrite!
+firstfile=$( ls *.csv | head -1 );
+cat "$workdir/$firstfile" | head -1 > "$outputfile";
+
+
+for file in "${workdir}/"*.csv
+do
+  if [ -f "$file" ]; then
+    #may need to adjust +# if output incorrect
+    tail -n +2 "$file" >> "$outputfile";
+  fi
+done

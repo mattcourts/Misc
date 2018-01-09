@@ -1,0 +1,43 @@
+#bin/bash                                                                                             
+#Author: Matt                                                                                         
+#version: 0.4                                                                                         
+# Cron task for backing up and parsing particular folders originally built for ibackup
+# indexing will be disabled for this file
+# will update daily will have to manually delete archives for mean time.
+
+# changes
+# update rsync script with -u, found it wasn't updating the files properly. Original script was meant to pull all files, not update.'
+# updated file paths to be variables for better tracking and less errors.
+                                              
+
+files='/files';  #work dir
+archive='/archive/'; #dir for archiving
+log='/var/log/syncBackup'; # logging
+remoteaddr='remoteaddr';
+omegaurl='/url/';
+
+                                                                                                      
+# create backup of current directory                                                                                                                                      
+echo "creating backup of old content in iBackup" >> $log;                        
+tar cvjf ${archive}ibackup_$(date +"%m-%d-%y").tar.bz2 $files >> $log;                                                                               
+echo "Backup completed" >> $log;                                                 
+                                                                                                      
+# Sync new content from Server                                                                
+export RSYNC_PASSWORD=fire1845; #password for rsync....                                               
+echo "Starting Sync" + $(date +"%m-%d-%y") >> $log;                               
+rsync -r -v -z -u -t remoteaddr::/ $files  >> $log       
+
+echo "Finished" >> $log;                                                          
+                                                                                                      
+# index directory for searching                                                       
+echo "rebuilding index" >> $log;                                                  
+omindex --db /var/lib/omega/data/default --url $omegaurl >> $log;                                                        
+# echo "finished rebuilding" >> $log;                                               
+                                                                                                      
+# fix file permissions - they are inconsistant                                                        
+echo "setting permissions" >> $log;                                               
+chmod -R 777 ${files}; #755 for web
+chgrp user -R $files;                                 
+                                                                                                      
+#completed                                                                                            
+echo "Completed backup and syncing" >> $log;   
