@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div id="quotes" style="width: 600px; border:#CCC inset; padding: 10px; color: red; background: light-grey;">
+	<script type="text/javascript">
+		var quotes = new Array();
+		quotes[0] = "“Just know, when you truly want success, you’ll never give up on it. No matter how bad the situation may get.” - Unknown";
+		quotes[1] = "“Accept responsibility for your life. Know that it is you who will get you where you want to go, no one else.” - Les Brown";
+		quotes[2] = "“I don’t regret the things I’ve done, I regret the things I didn’t do when I had the chance.” - Unknown";
+		quotes[3] = "“Challenges are what make life interesting and overcoming them is what makes life meaningful.” - Joshua J. Marine";
+		quotes[4] = "“Its hard to wait around for something you know might never happen; but its harder to give up when you know its everything you want.” - Unknown";
+		quotes[5] = "“One of the most important keys to Success is having the discipline to do what you know you should do, even when you dont feel like doing it.” - Unknown";
+		quotes[6] = "“Good things come to those who wait… greater things come to those who get off their ass and do anything to make it happen.” - Unknown";
+		quotes[7] = "“Happiness cannot be traveled to, owned, earned, or worn. It is the spiritual experience of living every minute with love, grace & gratitude.” - Denis Waitley";
+		quotes[8] = "“In order to succeed, your desire for success should be greater than your fear of failure.” - Bill Cosby";
+		quotes[9] = "“Go where you are celebrated - not tolerated. If they can’t see the real value of you, it’s time for a new start.” - Unknown";
+		quotes[10] = "“Dont be afraid to stand for what you believe in, even if that means standing alone..” - Unknown";
+		quotes[11] = "“The best revenge is massive success.” - Frank Sinatra";
+		quotes[12] = "“Forget all the reasons it won’t work and believe the one reason that it will.” - Unknown";
+		quotes[13] = "“I am thankful for all of those who said NO to me. Its because of them I’m doing it myself.” - Albert Einstein";
+		quotes[14] = "“The only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle.” - Steve Jobs";
+		quotes[15] = "“Life is short, live it. Love is rare, grab it. Anger is bad, dump it. Fear is awful, face it. Memories are sweet, cherish it.” - Unknown";
+		quotes[17] = "“Life is like photography. You need the negatives to develop.” - Unknown";
+		quotes[18] = "“Don’t worry about failures, worry about the chances you miss when you don’t even try.” - Jack Canfield";
+		quotes[19] = "“The pain you feel today is the strength you feel tomorrow. For every challenge encountered there is opportunity for growth.” - Unknown";
+		quotes[20] = "“Build your own dreams, or someone else will hire you to build theirs.” - Farrah Gray";
+		quotes[21] = "“The only thing that stands between you and your dream is the will to try and the belief that it is actually possible.” - Joel Brown";
+		quotes[22] = "“Self confidence is the most attractive quality a person can have. how can anyone see how awesome you are if you can’t see it yourself?” - Unknown";
+		quotes[23] = "“We learn something from everyone who passes through our lives.. Some lessons are painful, some are painless.. but, all are priceless.” - Unknown";
+		quotes[24] = "“Being happy doesn’t mean that everything is perfect. it means that you’ve decided to look beyond the imperfections.” - Unknown";
+		quotes[25] = "“Nobody ever wrote down a plan to be broke, fat, lazy, or stupid. Those things are what happen when you don’t have a plan.” - Larry Winget";
+		quotes[26] = "“Three things you cannot recover in life: the WORD after it’s said, the MOMENT after it’s missed and the TIME after it’s gone. Be Careful!” - Unknown";
+		quotes[27] = "“Though no one can go back and make a brand new start, anyone can start from now and make a brand new ending.” - Carl Bard";
+		quotes[28] = "“When the past calls, let it go to voicemail, believe me, it has nothing new to say.” - Unknown";
+		quotes[29] = "“Rule #1 of life. Do what makes YOU happy.” - Unknown";
+		quotes[30] = "“Walk away from anything or anyone who takes away from your joy. Life is too short to put up with fools.” - Unknown";
+		quotes[31] = "“Love what you have. Need what you want. Accept what you receive. Give what you can. Always remember, what goes around, comes around…” - Unknwon";
+		quotes[32] = "“Just remember there is someone out there that is more than happy with less than what you have.” - Unknown";
+		quotes[33] = "“The biggest failure you can have in life is making the mistake of never trying at all.” - Unknown";
+		quotes[34] = "“Life has two rules: #1 Never quit #2 Always remember rule # 1.” - Unknown";
+		quotes[35] = "“No one is going to hand me success. I must go out & get it myself. That’s why I’m here. To dominate. To conquer. Both the world, and myself.” - Unknown";
+		//quote[#] = "“quote goes here” - author"; NOTE: # must be unique, best to increment
+		var selQuote = quotes[Math.floor(Math.random() * quotes.length)];
+		if (selQuote.indexOf("-") !== -1){
+			var index = selQuote.indexOf("-");
+			document.write("<dl><dt>" + selQuote.substring(0,index) + "</dt><dd><span style=\"float: right; padding-right: 20px;\">" + selQuote.substring(index) + "</span></dd></dl>");
+		} else {
+			document.write("<dl><dt>" +  + "</dt></dl>");
+		}
+    </script>
+</div>
+</body>
+</html>
