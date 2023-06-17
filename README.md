@@ -1,4 +1,4 @@
 # misc files
 
 
-misc files i've used in the past.
+misc scripts I've used in the past.
